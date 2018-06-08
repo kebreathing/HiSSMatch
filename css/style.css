@@ -1,0 +1,324 @@
+.color-black { color: #212121; }
+.color-grey { color: #B4B1B1; }
+.color-font-grey { color: #6B6868; }
+.color-btn-yellow { background:rgba(255,193,7,1); }
+.color-btn-blue { background:rgba(58,116,255,1); }
+.color-btn-red { background:rgba(255,65,7,1); }
+body {
+  font-size: 16px;
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(179.9deg,rgba(236,244,255,1),rgba(255,255,255,1));
+  font-family: 'Helvetica Neue', Helvetica, Arial,
+    'PingFang SC', 'Hiragino Sans GB', 'Heiti SC',
+    'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+a {
+  outline: none;
+  appearance: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+}
+
+/**
+  header
+**/
+.header {
+  height: 3.750000rem;
+  width: inherit;
+}
+
+.header_menu {
+  height: 2.000000rem;
+  width: auto;
+  padding-left: 3rem;
+  padding-top: 1.875rem;
+}
+
+.header_menu span {
+  font-size: 1.000000rem;
+  line-height: 1.375rem;
+  padding-left: 3rem;
+}
+
+.header_menu span:first-child {
+  font-size: 1.250000rem;
+  line-height: 1.75rem;
+  padding-left: 0rem;
+}
+
+.header_item--active {
+  color: #212121;
+}
+
+.header_item--normal {
+  color: #B4B1B1;
+}
+
+/**
+  body
+**/
+.body {
+  width: 100%;
+  margin-top: 11.000000rem;
+}
+
+.body .character-view {
+  width: 14rem;
+  height: 17.5rem;
+  text-align: center;
+}
+
+/**
+  character button
+**/
+.character_btn {
+  position: relative;
+  background: linear-gradient(-90deg,rgba(96,177,255,1),rgba(57,115,255,1));
+  box-shadow: 0px 5px 10px 5px rgba(205,225,246,1);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.character_btn + span {
+  position: relative;
+  top: 1.5rem;
+  font-size: 1.5rem;
+  color: #212121;
+}
+
+/* character_btn large */
+.character_btn--large {
+  width: 14rem;
+  height: 14rem;
+}
+
+.character_btn--large > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8rem;
+  height: 8rem;
+}
+
+/* character_btn small*/
+.character_btn--small {
+  width: 4rem;
+  height: 4rem;
+}
+
+.character_btn--small > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.3125rem;
+  height: 2.3125rem;
+}
+
+.character_btn--user {
+  position: absolute;
+  top: 1.75rem;
+  right: 2.8125rem;
+}
+
+.character-view:last-child {
+  margin-left: 6.75rem;
+}
+
+/**
+  操作选项
+**/
+.container {
+  width: 100%;
+}
+
+.guide-container {
+  margin-top: 3.5625rem;
+  margin-left: 4.25rem;
+  width: 90%;
+}
+
+.guide-container h1 {
+  font-size: 2.25rem;
+  color: #212121;
+}
+
+.guide-container .guide-section {
+  width: 80%;
+  margin-top: 2.5rem;
+}
+
+.guide-section > .h3 {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6B6868;
+  border-bottom: 0.06rem solid rgba(107,104,104,1);
+}
+
+.guide-section > .div {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.guide-section > .div > span {
+  font-size: 0.75rem;
+  color:rgba(107,104,104,1);
+  line-height:1.06rem;
+}
+/* 操作指南：选择项 */
+.select-btn {
+  height: 2.25rem;
+  margin-left: 1.5rem;
+}
+
+.select-btn:first-child {
+  margin-left: 0rem;
+}
+
+.select_btn--normal,
+.select_btn--add {
+  background:rgba(225,224,226,1);
+}
+
+.select_btn--normal img {
+  display: none;
+  width: 1.5rem;
+  height: 1.125rem;
+}
+
+.select_btn--add {
+  position: relative;
+  width: 7rem;
+  height: 2.25rem;
+}
+
+.select_btn--add img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:1.25rem;
+  height:1.25rem;
+}
+
+.select_btn--normal span {
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+
+.select_btn--active {
+  background:rgba(58,116,255,1);
+  box-shadow:0px 2px 3px 0px rgba(109,179,253,1);
+}
+
+.select_btn--active img {
+  display: block;
+  width: 1.5rem;
+  height: 1.125rem;
+}
+
+.select_btn--active span {
+  color: #FFFFFF;
+  font-size: 1rem;
+  padding-left: 0.8125rem;
+}
+
+/* 操作选项：数字按钮 */
+.select_btn--numactive {
+  background:rgba(58,116,255,1);
+  box-shadow:0px 2px 3px 0px rgba(109,179,253,1);
+}
+
+.select_btn--numactive span {
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+
+/* 操作确认 */
+.guide-container .action-section {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.action-section > .h3 {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom:0.06rem solid rgba(107,104,104,1);
+  color: #6B6868;
+}
+
+.action-section > .div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.action-section > .div button {
+  width:7rem;
+  height:2.25rem;
+  box-shadow:0rem 0.13rem 0.25rem 0rem rgba(150,147,147,0.5);
+  border-radius:0.31rem;
+  color: #FFFFFF;
+  font-size: 1rem;
+  line-height:1.38rem;
+  margin-left: 2rem;
+}
+
+.action-section > .div a:first-child {
+  margin-left: 0rem;
+}
+
+/**
+  footer
+**/
+.footer {
+  position: absolute;
+  bottom: 0rem;
+  height: 5.1875rem;
+  width: 100%;
+}
+
+.footer_div {
+  width: 57.625rem;
+  height: 4.125rem;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 2px 4px 0px rgba(196,197,199,0.5);
+  border-radius:5px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.footer_div img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.footer_div a {
+  color: #212121;
+  font-size: 1rem;
+  letter-spacing: 0.0625rem;
+  padding-left: 1rem;
+}
