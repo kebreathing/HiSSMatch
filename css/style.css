@@ -145,6 +145,38 @@ button {
 }
 
 /**
+  footer
+**/
+.footer {
+  position: absolute;
+  bottom: 0rem;
+  height: 5.1875rem;
+  width: 100%;
+}
+
+.footer_div {
+  width: 57.625rem;
+  height: 4.125rem;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 2px 4px 0px rgba(196,197,199,0.5);
+  border-radius:5px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.footer_div img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.footer_div a {
+  color: #212121;
+  font-size: 1rem;
+  letter-spacing: 0.0625rem;
+  padding-left: 1rem;
+}
+
+/**
   操作选项
 **/
 .container {
@@ -292,33 +324,267 @@ button {
 }
 
 /**
-  footer
+  查看标准内容
 **/
-.footer {
-  position: absolute;
-  bottom: 0rem;
-  height: 5.1875rem;
-  width: 100%;
-}
-
-.footer_div {
-  width: 57.625rem;
-  height: 4.125rem;
-  background:rgba(255,255,255,1);
-  box-shadow:0px 2px 4px 0px rgba(196,197,199,0.5);
-  border-radius:5px;
-  text-align: center;
+.content-container {
+  width: 90%;
   margin: 0 auto;
 }
 
-.footer_div img {
+.content-container > .content-header {
+  display: flex;
+  align-items: center;
+  width:58.13rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.content-header img {
   width: 2rem;
   height: 2rem;
 }
 
-.footer_div a {
-  color: #212121;
+.content-header > span {
+  font-size:2.25rem;
+  font-weight: bold;
+  color:rgba(33,33,33,1);
+  line-height:3.13rem;
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
+.content-container > .domain-section {
+  display: flex;
+  width:58.13rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.domain-tips span {
+  font-size:1rem;
+  font-weight: bold;
+  color:rgba(107,104,104,1);
+  line-height:1.38rem;
+  border-bottom: 0.06rem solid rgba(107,104,104,1);
+}
+
+.domain-section > .domain-items {
+  display: block;
+  margin-left: 1.5rem;
+  overflow: scroll;
+}
+
+.domain-items > div {
+  width: 100%;
+  height: 2rem;
+  overflow: auto;
+}
+
+.domain-items .domain-gap {
+  margin-top: 0.6rem;
+}
+
+.domain-items button {
+  margin-left: 1rem;
+}
+
+.domain-items button:first-child {
+  margin-left: 0rem;
+}
+
+/* 按钮样式 */
+.domain_btn--normal {
+  background:rgba(225,224,226,1);
+}
+
+.domain_btn--active {
+  background:rgba(58,116,255,1);
+  box-shadow:0px 2px 3px 0px rgba(109,179,253,1);
+}
+
+.domain_btn--normal,
+.domain_btn--active {
+  display: inline-block;
+  height: 2rem;
+}
+
+.domain_btn--normal span,
+.domain_btn--active span{
+  color: #FFFFFF;
   font-size: 1rem;
-  letter-spacing: 0.0625rem;
-  padding-left: 1rem;
+}
+
+/* 搜索框 */
+.search-section {
+  width:58.13rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.search-section > span {
+  font-size:0.88rem;
+  font-weight: bold;
+  color:rgba(0,0,0,1);
+  line-height:1.25rem;
+}
+
+.search-section .radios {
+  display: flex;
+  align-items: center;
+}
+
+/* 搜索组合框 */
+.search-radio {
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.search-section .search_radio:first-child {
+  margin-left: 0rem;
+}
+
+.search-radio .check-box {
+  width:0.88rem;
+  height:0.88rem;
+  border-radius:0.13rem;
+  border:0.06rem solid rgba(213,216,222,1);
+}
+
+.search-radio .check-box > i {
+  width: 0.88rem;
+  height: 0.88rem;
+  color: rgba(255,255,255,1);
+}
+
+.search-radio > span {
+  font-size:0.88rem;
+  font-weight: bold;
+  color:rgba(96,98,102,1);
+  line-height:0.88rem;
+  padding-left: 0.5rem;
+}
+
+.search_radio--active .check-box {
+  background-color: rgba(25,137,250,1);
+}
+
+
+.search_radio--active span {
+  color: rgba(25,137,250,1);
+}
+
+.search_radio--normal check-box {
+  background:rgba(255,255,255,1);
+}
+
+.search_radio--normal span {
+  color:rgba(96,98,102,1);
+}
+
+/* 搜索框 */
+.searchbar {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  margin-left: 6rem;
+}
+
+.searchbar input {
+  width:16.81rem;
+  height:2.25rem;
+  background:rgba(255,255,255,1);
+  border-radius:0.31rem;
+  border:0.06rem solid rgba(216,216,216,1);
+}
+
+.searchbar button {
+  margin-left: 0.5rem;
+  width:2.13rem;
+  height:2.25rem;
+  background:rgba(58,116,255,1);
+  border-radius:0.31rem;
+}
+
+.searchbar button img {
+  width:1.5rem;
+  height:1.5rem;
+}
+
+/* 表格章节 */
+.content-container .table-section {
+  width:58.13rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+}
+
+.ctable,
+.mtable {
+  width:58.13rem;
+  height:40rem;
+  background:rgba(255,255,255,1);
+  box-shadow:0rem 0rem 0.63rem 0rem rgba(198,193,193,0.5);
+  border-radius:0.31rem;
+  overflow-y: scroll;
+}
+
+/* content */
+.ctable table {
+  padding-top: 1rem;
+  margin: 0 auto;
+}
+
+table thead th{
+  border-bottom: 0.06rem solid rgba(0,0,0,1);
+}
+
+.ctable table tbody td {
+  border-bottom: 0.06rem solid rgba(155,155,155,0.69);
+}
+
+.ctable table .col_domain {
+  width: 8rem;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 0.94rem;
+}
+
+.ctable table .col_index {
+  width: 8rem;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 0.94rem;
+}
+
+.ctable table .col_target {
+  width: 8rem;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 0.94rem;
+}
+
+.ctable table .col_goal {
+  width: 19rem;
+  font-size:0.75rem;
+  line-height:0.94rem;
+}
+
+.ctable table .col_goal div {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* 对标结果表格 */
+.mtable table {
+  padding-top: 1rem;
+  margin: 0 auto;
+}
+
+.mtable td {
+  text-align: center;
 }

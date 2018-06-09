@@ -22,7 +22,7 @@
       <div class="content-container">
         <div class="content-header">
           <img src="./image/back.png"/>
-          <span>查看标注标准内容</span>
+          <span>查看对标结果</span>
           <button class="domain_btn--active" style="width:6rem;height:2rem;">
             <span>CCA CCM</span>
           </button>
@@ -43,57 +43,24 @@
             </div>
           </div>
         </section>
-        <section class="search-section">
-          <span>搜索范围：</span>
-          <div class="radios">
-            <div class="search-radio search_radio--active">
-              <div class="check-box"><i class="fa fa-check"></i></div>
-              <span>全部内容</span>
-            </div>
-            <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
-              <span>安全域</span>
-            </div>
-            <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
-              <span>索引</span>
-            </div>
-            <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
-              <span>安全目标</span>
-            </div>
-            <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
-              <span>具体要求</span>
-            </div>
-          </div>
-          <div class="searchbar">
-            <input class="search_input" placeholder="  输入关键字"/>
-            <button><img src="./image/search.png"/></button>
-          </div>
-        </section>
-        <section class="table-section">
-          <div class="ctable">
-            <table id="ctable" style="width:95%">
+        <section class="table-section" style="margin-top: 2rem;">
+          <div class="mtable">
+            <table id="mtable" style="width:95%">
               <thead>
                 <tr>
-                  <th>安全域</th>
-                  <th>文件索引</th>
+                  <th>安全域-索引</th>
                   <th>安全目标</th>
-                  <th>具体目标</th>
+                  <th>对标：安全域-索引</th>
+                  <th>对标：安全目标</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="col_domain"><span>Application & Interface Security</span></td>
-                  <td class="col_index"><span>AIS-01</span></td>
-                  <td class="col_target"><span>Application Security</span></td>
-                  <td class="col_goal">
-                    <div>Applications and programming interfaces (APIs) shall be
-                      designed, developed, deployed, and tested in accordance with
-                       leading industry standards (e.g., OWASP for web applications)
-                        and adhere to applicable legal, statutory, or regulatory
-                        compliance obligations.
+                  <td><span>Application & Interface Security AIS-01</span></td>
+                  <td><span>Application Security</span></td>
+                  <td><span>Leadership and commitment 6.1.1</span></td>
+                  <td>
+                    <div>Leadership and commitment
                       </div>
                   </td>
                 </tr>
