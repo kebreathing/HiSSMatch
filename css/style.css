@@ -4,6 +4,7 @@
 .color-btn-yellow { background:rgba(255,193,7,1); }
 .color-btn-blue { background:rgba(58,116,255,1); }
 .color-btn-red { background:rgba(255,65,7,1); }
+.color-btn-grey { background:#B4B1B1; }
 body {
   font-size: 16px;
   width: 100%;
@@ -27,6 +28,16 @@ button {
   appearance: none;
   outline: none;
   cursor: pointer;
+}
+
+h3 {
+  margin: 0rem;
+  padding: 0rem;
+}
+
+p {
+  margin: 0rem;
+  padding: 0rem;
 }
 
 .flex-box {
@@ -319,7 +330,7 @@ button {
   margin-left: 2rem;
 }
 
-.action-section > .div a:first-child {
+.action-section > .div button:first-child {
   margin-left: 0rem;
 }
 
@@ -361,6 +372,8 @@ button {
 }
 
 .domain-tips span {
+  display: inline-block;
+  width: 3rem;
   font-size:1rem;
   font-weight: bold;
   color:rgba(107,104,104,1);
@@ -371,24 +384,25 @@ button {
 .domain-section > .domain-items {
   display: block;
   margin-left: 1.5rem;
-  overflow: scroll;
+  overflow-x: scroll;
+  scroll-behavior: auto;
 }
 
-.domain-items > div {
+.domain-items > .domains {
   width: 100%;
-  height: 2rem;
-  overflow: auto;
+  height: 3rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
-.domain-items .domain-gap {
-  margin-top: 0.6rem;
-}
 
-.domain-items button {
+.domains button {
+  display: inline-block;
   margin-left: 1rem;
 }
 
-.domain-items button:first-child {
+.domains button:first-child {
   margin-left: 0rem;
 }
 
@@ -450,16 +464,19 @@ button {
 }
 
 .search-radio .check-box {
+  position: relative;
   width:0.88rem;
   height:0.88rem;
   border-radius:0.13rem;
-  border:0.06rem solid rgba(213,216,222,1);
 }
 
-.search-radio .check-box > i {
-  width: 0.88rem;
-  height: 0.88rem;
-  color: rgba(255,255,255,1);
+.search-radio .check-box > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.6rem;
+  height: 0.6rem;
 }
 
 .search-radio > span {
@@ -472,6 +489,7 @@ button {
 
 .search_radio--active .check-box {
   background-color: rgba(25,137,250,1);
+  border:0.06rem solid rgba(25,137,250,1);
 }
 
 
@@ -479,8 +497,9 @@ button {
   color: rgba(25,137,250,1);
 }
 
-.search_radio--normal check-box {
+.search_radio--normal .check-box {
   background:rgba(255,255,255,1);
+  border:0.06rem solid rgba(213,216,222,1);
 }
 
 .search_radio--normal span {
@@ -586,5 +605,142 @@ table thead th{
 }
 
 .mtable td {
+  font-size: 1rem;
+}
+
+.col_domain1 {
+  max-width: 13rem;
+}
+
+.col_target1 {
+  max-width: 10rem;
   text-align: center;
+}
+
+.col_domain2 {
+  max-width: 13rem;
+}
+
+.col_target2 {
+  min-width: 13rem;
+  text-align: center;
+}
+
+.col_target2 div{
+  height: 2.4rem;
+}
+
+.mtable-col3-row {
+  border-bottom: 1px solid black;
+}
+
+.mtable-col3-row img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.mtable-col3-row div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  max-width: 13rem;
+  height: 1.4rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.mtable-col3-row div span {
+  display: inline-block;
+  box-sizing: border-box;
+  width: inherit;
+}
+
+.mtable-col3-append {
+  position: relative;
+  width: inherit;
+  height: 2.5rem;
+}
+
+.mtable-col3-append img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* 图标i */
+.div-i {
+  position:relative;
+}
+
+.img-i {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.div_info {
+  position: absolute;
+  z-index: 10;
+  left: 2.25rem;
+  top: -5rem;
+  width:52.38rem;
+  height:20.44rem;
+  background:rgba(255,255,255,1);
+  border-radius:0.31rem;
+  border:0.06rem solid rgba(151,151,151,1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  visibility: hidden;
+}
+
+.div_info .left-view {
+  width: 23rem;
+  height: 90%;
+  overflow: auto;
+}
+
+.left-view h3 {
+  font-size:0.88rem;
+  color:rgba(0,0,0,1);
+  line-height:0.94rem;
+  padding-top: 1rem;
+}
+
+.left-view p {
+  padding-top: 1rem;
+  font-size:0.88rem;
+  color:rgba(0,0,0,1);
+  line-height:1.25rem;
+}
+
+.div_info .spliter {
+  width:0.01rem;
+  height:13.06rem;
+  border:0.01rem solid rgba(151,151,151,1);
+}
+
+.div_info .right-view {
+  width: 23rem;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.right-view h3 {
+  font-size:0.88rem;
+  color:rgba(0,0,0,1);
+  line-height:0.94rem;
+  padding-top: 1rem;
+}
+
+.right-view p {
+  padding-top: 1rem;
+  font-size:0.88rem;
+  color:rgba(0,0,0,1);
+  line-height:1.25rem;
 }

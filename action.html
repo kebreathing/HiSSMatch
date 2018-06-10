@@ -23,19 +23,19 @@
         <section class="guide-section" style="margin-top: 1.5rem;">
           <div class="h3">对标参照标准</div>
           <div class="div">
-            <button class="select-btn select_btn--active flex-box">
+            <button class="btn-obj select-btn select_btn--normal flex-box">
               <img src="./image/selected.png"/>
               <span>CSA CCM</span>
             </button>
-            <button class="select-btn select_btn--normal flex-box">
+            <button class="btn-obj select-btn select_btn--normal flex-box">
               <img src="./image/selected.png"/>
               <span>ISO27001</span>
             </button>
-            <button class="select-btn select_btn--normal flex-box">
+            <button class="btn-obj select-btn select_btn--normal flex-box">
               <img src="./image/selected.png"/>
               <span>GB/T31168</span>
             </button>
-            <button class="select-btn select_btn--add flex-box">
+            <button class="btn-obj-add select-btn select_btn--add flex-box">
               <img src="./image/add.png"/>
             </button>
           </div>
@@ -43,19 +43,19 @@
         <section class="guide-section">
           <div class="h3">安全目标选择</div>
           <div class="div">
-            <button class="select-btn select_btn--active flex-box">
+            <button class="btn-sub select-btn select_btn--normal flex-box">
               <img src="./image/selected.png"/>
               <span>CSA CCM</span>
             </button>
-            <button class="select-btn select_btn--normal flex-box">
+            <button class="btn-sub select-btn select_btn--normal flex-box">
               <img src="./image/selected.png"/>
               <span>ISO27001</span>
             </button>
-            <button class="select-btn select_btn--normal flex-box">
+            <button class="btn-sub select-btn select_btn--normal flex-box">
               <img src="./image/selected.png"/>
               <span>GB/T31168</span>
             </button>
-            <button class="select-btn select_btn--add flex-box">
+            <button class="btn-sub-add select-btn select_btn--add flex-box">
               <img src="./image/add.png"/>
             </button>
           </div>
@@ -64,16 +64,16 @@
           <div class="h3">显示设置</div>
           <div class="div">
             <span>每页条数：</span>
-            <button class="select-btn select_btn--numactive flex-box">
+            <button class="btn-pagesize select-btn select_btn--normal flex-box">
               <span>5</span>
             </button>
-            <button class="select-btn select_btn--normal flex-box">
+            <button class="btn-pagesize select-btn select_btn--normal flex-box">
               <span>10</span>
             </button>
-            <button class="select-btn select_btn--normal flex-box">
+            <button class="btn-pagesize select-btn select_btn--normal flex-box">
               <span>15</span>
             </button>
-            <button class="select-btn select_btn--normal flex-box">
+            <button class="btn-pagesize select-btn select_btn--normal flex-box">
               <span>全部</span>
             </button>
           </div>
@@ -81,12 +81,17 @@
         <section class="action-section">
           <div class="h3">操作选择</div>
           <div class="div">
-            <a href="./content.html"><button class="color-btn-blue"><span>查看标准内容</span></button></a>
-            <a href="./match.html"><button class="color-btn-yellow"><span>查看对标结果</span></button></a>
-            <a href="./modi.html"><button class="color-btn-red"><span>修改对标结果</span></button></a>
+            <button id="btn-content" class="color-btn-blue" onclick="onClickContent(this)"><span>查看标准内容</span></button>
+            <button id="btn-match" class="color-btn-yellow"><span>查看对标结果</span></button>
+            <button id="btn-modi" class="color-btn-red"><span>修改对标结果</span></button>
           </div>
         </section>
       </div>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="./js/action.js"></script>
   </body>
 </html>

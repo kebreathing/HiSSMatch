@@ -21,25 +21,21 @@
     <div class="container">
       <div class="content-container">
         <div class="content-header">
-          <img src="./image/back.png"/>
+          <img src="./image/back.png" onclick="history.back()"/>
           <span>查看标注标准内容</span>
           <button class="domain_btn--active" style="width:6rem;height:2rem;">
-            <span>CCA CCM</span>
+            <span id="ssname">CCA CCM</span>
           </button>
         </div>
         <section class="domain-section">
           <div class="domain-tips"><span>安全域</span></div>
           <div class="domain-items">
-            <div>
-              <button class="domain_btn--active"><span>全部</span></button>
-              <button class="domain_btn--normal"><span>Application & Interface Security</span></button>
-              <button class="domain_btn--normal"><span>Encryption & Key Management</span></button>
-              <button class="domain_btn--normal"><span>Governance and Risk Management</span></button>
-            </div>
-            <div class="domain-gap">
-              <button class="domain_btn--normal"><span>Application & Interface Security</span></button>
-              <button class="domain_btn--normal"><span>Encryption & Key Management</span></button>
-              <button class="domain_btn--normal"><span>Governance and Risk Management</span></button>
+            <div class="domains">
+              <button class="domain_btn domain_btn--active" id="domain_all"><span>全部</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Application & Interface Security</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Encryption & Key Management</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Governance and Risk Management</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Governance and Risk Management</span></button>
             </div>
           </div>
         </section>
@@ -47,29 +43,29 @@
           <span>搜索范围：</span>
           <div class="radios">
             <div class="search-radio search_radio--active">
-              <div class="check-box"><i class="fa fa-check"></i></div>
+              <div class="check-box"><img src="./image/selected.png"/></i></div>
               <span>全部内容</span>
             </div>
             <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
+              <div class="check-box"><img src="./image/selected.png"/></i></div>
               <span>安全域</span>
             </div>
             <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
+              <div class="check-box"><img src="./image/selected.png"/></i></div>
               <span>索引</span>
             </div>
             <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
+              <div class="check-box"><img src="./image/selected.png"/></i></div>
               <span>安全目标</span>
             </div>
             <div class="search-radio search_radio--normal">
-              <div class="check-box"><i class="fa fa-check"></i></div>
+              <div class="check-box"><img src="./image/selected.png"/></i></div>
               <span>具体要求</span>
             </div>
           </div>
           <div class="searchbar">
-            <input class="search_input" placeholder="  输入关键字"/>
-            <button><img src="./image/search.png"/></button>
+            <input id="input-key" class="search_input" placeholder="  输入关键字" />
+            <button onclick="onClickSearch()"><img src="./image/search.png"/></button>
           </div>
         </section>
         <section class="table-section">
@@ -108,6 +104,6 @@
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
-    </script>
+    <script src="./js/content.js"></script>
   </body>
 </html>
