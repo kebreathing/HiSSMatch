@@ -21,29 +21,25 @@
     <div class="container">
       <div class="content-container">
         <div class="content-header">
-          <img src="./image/back.png"/>
+          <img src="./image/back.png" onclick="history.back()"/>
           <span>查看对标结果</span>
           <button class="domain_btn--active" style="width:6rem;height:2rem;">
-            <span>CCA CCM</span>
+            <span id="obj">CSA CCM</span>
           </button>
           <img src="./image/switch.png" style="margin-left: 1rem; margin-right: 1rem;"/>
           <button class="domain_btn--active" style="width:6rem;height:2rem;">
-            <span>ISO27001</span>
+            <span id="sub">ISO27001</span>
           </button>
         </div>
         <section class="domain-section">
           <div class="domain-tips"><span>安全域</span></div>
           <div class="domain-items">
-            <div>
-              <button class="domain_btn--active"><span>全部</span></button>
-              <button class="domain_btn--normal"><span>Application & Interface Security</span></button>
-              <button class="domain_btn--normal"><span>Encryption & Key Management</span></button>
-              <button class="domain_btn--normal"><span>Governance and Risk Management</span></button>
-            </div>
-            <div class="domain-gap">
-              <button class="domain_btn--normal"><span>Application & Interface Security</span></button>
-              <button class="domain_btn--normal"><span>Encryption & Key Management</span></button>
-              <button class="domain_btn--normal"><span>Governance and Risk Management</span></button>
+            <div class="domains">
+              <button id="domain_all" class="domain_btn--active"><span>全部</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Application & Interface Security</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Encryption & Key Management</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Governance and Risk Management</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Governance and Risk Management</span></button>
             </div>
           </div>
         </section>

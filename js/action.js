@@ -26,23 +26,11 @@ class Controller {
       }
 
       if (that.objel !== undefined && that.subel !== undefined) {
-        $('#btn-match').css('background', 'rgba(255,193,7,1)')
-        $('#btn-content').css('background', '#B4B1B1')
-        that.status = 2
-        return
-      }
-
-      if (that.objel !== undefined || that.subel !== undefined) {
-        $('#btn-match').css('background', '#B4B1B1')
-        $('#btn-content').css('background', 'rgba(58,116,255,1)')
-        that.status = 1
-        return
-      }
-
-      if (that.objel == undefined && that.subel == undefined) {
-        $('#btn-match').css('background', '#B4B1B1')
-        $('#btn-content').css('background', '#B4B1B1')
-        that.status = 0
+        that.active_match()
+      } else if (that.objel !== undefined || that.subel !== undefined) {
+        that.active_content()
+      } else if (that.objel == undefined && that.subel == undefined) {
+        that.normal_all()
       }
     })
 
@@ -65,22 +53,11 @@ class Controller {
       }
 
       if (that.objel !== undefined && that.subel !== undefined) {
-        $('#btn-content').css('background', '#B4B1B1')
-        $('#btn-match').css('background', 'rgba(255,193,7,1)')
-        that.status = 2
-        return
-      }
-
-      if (that.objel !== undefined || that.subel !== undefined) {
-        $('#btn-content').css({'background':'rgba(58,116,255,1)'})
-        $('#btn-match').css('background', '#B4B1B1')
-        that.status = 1
-      }
-
-      if (that.objel == undefined && that.subel == undefined) {
-        $('#btn-match').css('background', '#B4B1B1')
-        $('#btn-content').css('background', '#B4B1B1')
-        that.status = 0
+        that.active_match()
+      } else if (that.objel !== undefined || that.subel !== undefined) {
+        that.active_content()
+      } else if (that.objel == undefined && that.subel == undefined) {
+        that.normal_all()
       }
     })
 
@@ -99,6 +76,31 @@ class Controller {
         that.pageSize = this
       }
     })
+  }
+
+  normal_all () {
+    $('#btn-match').css('background', '#B4B1B1')
+    $('#btn-content').css('background', '#B4B1B1')
+    $('#btn-modi').css('background', '#B4B1B1')
+    this.status = 0
+  }
+
+  active_match () {
+    if (this.objel.innerHTML === this.subel.innerHTML) {
+      this.active_content()
+      return
+    }
+    $('#btn-match').css('background', 'rgba(255,193,7,1)')
+    $('#btn-content').css('background', '#B4B1B1')
+    $('#btn-modi').css('background', 'rgba(255,65,7,1)')
+    this.status = 2
+  }
+
+  active_content () {
+    $('#btn-content').css({'background':'rgba(58,116,255,1)'})
+    $('#btn-match').css('background', '#B4B1B1')
+    $('#btn-modi').css('background', '#B4B1B1')
+    this.status = 1
   }
 
   get_info () {
@@ -160,6 +162,8 @@ function onClickMatch (e) {
     if (params.sub != undefined) paramStr += '&sub=' + params.sub
     paramStr += '&pageSize=' + params.pageSize
     var url = 'match.html?' + paramStr
+
+    location.href = url
   }
 }
 
@@ -171,6 +175,7 @@ function onClickModi (e) {
     if (params.sub != undefined) paramStr += '&sub=' + params.sub
     paramStr += '&pageSize=' + params.pageSize
     var url = 'modi.html?' + paramStr
+    location.href = url
   }
 }
 
@@ -187,6 +192,9 @@ $(document).ready(function () {
       $('#btn-modi').css('display', 'none')
       break
     case 'w':
+      $('#btn-content').css('background', '#B4B1B1')
+      $('#btn-match').css('background', '#B4B1B1')
+      $('#btn-modi').css('background', '#B4B1B1')
       $('#btn-modi').css('display', 'block')
       break
     default:

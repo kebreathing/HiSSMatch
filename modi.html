@@ -21,7 +21,7 @@
     <div class="container">
       <div class="content-container">
         <div class="content-header">
-          <img src="./image/back.png"/>
+          <img src="./image/back.png" onclick="history.back()"/>
           <span>查看对标结果</span>
           <button class="domain_btn--active" style="width:6rem;height:2rem;">
             <span>CCA CCM</span>
@@ -34,20 +34,16 @@
         <section class="domain-section">
           <div class="domain-tips"><span>安全域</span></div>
           <div class="domain-items">
-            <div>
-              <button class="domain_btn--active"><span>全部</span></button>
-              <button class="domain_btn--normal"><span>Application & Interface Security</span></button>
-              <button class="domain_btn--normal"><span>Encryption & Key Management</span></button>
-              <button class="domain_btn--normal"><span>Governance and Risk Management</span></button>
-            </div>
-            <div class="domain-gap">
-              <button class="domain_btn--normal"><span>Application & Interface Security</span></button>
-              <button class="domain_btn--normal"><span>Encryption & Key Management</span></button>
-              <button class="domain_btn--normal"><span>Governance and Risk Management</span></button>
+            <div class="domains">
+              <button id="domain_all" class="domain_btn--active"><span>全部</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Application & Interface Security</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Encryption & Key Management</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Governance and Risk Management</span></button>
+              <button class="domain_btn domain_btn--normal"><span>Governance and Risk Management</span></button>
             </div>
           </div>
         </section>
-        <section class="table-section" style="margin-top: 2rem;">
+        <section class="table-section" style="margin-top: 0.9rem;">
           <div class="mtable">
             <table id="mtable" style="width:95%">
               <thead>
@@ -83,6 +79,8 @@
                           <h3>6.1.1</h3>
                           <p>For the purposes of this document, the terms and definitions given in ISO/IEC 27000 apply.</p>
                         </div>
+
+                        <img class="div_info-img" src="./image/close.png" onclick="$(this).parent().css('visibility', 'hidden')"/>
                       </div>
                     </div>
                   </td>
@@ -95,14 +93,14 @@
                   <td class="col_domain2">
                     <div class="mtable-col3-row">
                       <div><span>Leadership and commitment</span></div>
-                      <div><span>6.1.1</span><img src="./image/delete2.png"/></div>
+                      <div><span>6.1.1</span><img class="btn-delete" src="./image/delete2.png"/></div>
                     </div>
                     <div class="mtable-col3-row">
                       <div><span>Leadership and commitment</span></div>
-                      <div><span>6.1.1</span><img src="./image/delete2.png"/></div>
+                      <div><span>6.1.1</span><img class="btn-delete" src="./image/delete2.png"/></div>
                     </div>
                     <div class="mtable-col3-append">
-                      <img src="./image/append2.png"/>
+                      <img class="btn-add" src="./image/append2.png"/>
                     </div>
                   </td>
                   <td class="col_target2">
@@ -112,6 +110,83 @@
                 </tr>
               </tbody>
             </table>
+
+            <div class="popup-frame" id="pop-dialog">
+              <div class="popup-main">
+                <div class="popup-step">
+                  <div class="popup-div popup_step--active" id="step1">
+                    <img src="./image/figure1.png"/>
+                    <span>选择安全域</span>
+                  </div>
+                  <div class="popup-div popup_step--normal" id="step2">
+                    <img src="./image/figure2.png"/>
+                    <span>选择安全目标</span>
+                  </div>
+                  <div class="popup-div popup_step--normal" id="step2">
+                    <img src="./image/figure3.png"/>
+                    <span>点击添加</span>
+                  </div>
+                </div>
+                <!-- step: 步骤 -->
+                <div class="popup-title">
+                  <div><span>安全域</span></div>
+                  <div><span>安全目标</span></div>
+                  <div><span>已选项</span></div>
+                </div>
+                <!-- step: 标题 -->
+                <div class="popup-column">
+                  <div class="popup-domain" id="column1">
+                    <div><button class="pop-btn popup_domain--normal">Application & Interface Security</button></div>
+                    <div><button class="pop-btn popup_domain--normal">Application & Interface Security</button></div>
+                    <div><button class="pop-btn popup_domain--normal">Application & Interface Security</button></div>
+                  </div>
+                  <div class="popup-target" id="column2">
+                    <div class="search-radio search_radio--normal">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile Security</span>
+                    </div>
+                    <div class="search-radio search_radio--normal">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile Security</span>
+                    </div>
+                    <div class="search-radio search_radio--normal">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile Security</span>
+                    </div>
+                    <div class="search-radio search_radio--normal">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile Security</span>
+                    </div>
+                  </div>
+                  <div class="popup-selected" id="column3">
+                    <div class="search-radio search_radio--active">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile Security</span>
+                    </div>
+                    <div class="search-radio search_radio--active">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile Security</span>
+                    </div>
+                    <div class="search-radio search_radio--active">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile Security</span>
+                    </div>
+                    <div class="search-radio search_radio--active">
+                      <div class="check-box"><img src="./image/selected.png"/></i></div>
+                      <span>A 1.2.3 Mobile</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- frame-columns -->
+
+                <div class="frame-bottom">
+                  <button class="frame-cancel">取消</button>
+                  <button class="frame-ok">确认添加</button>
+                </div>
+                <!-- frame-button -->
+              </div>
+              <!-- frame-main -->
+            </div>
           </div>
         </section>
       </div>
@@ -121,6 +196,6 @@
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
-    </script>
+    <script src="./js/match.js"></script>
   </body>
 </html>

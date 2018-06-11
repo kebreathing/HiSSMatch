@@ -132,8 +132,8 @@ p {
 
 /* character_btn small*/
 .character_btn--small {
-  width: 4rem;
-  height: 4rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .character_btn--small > img {
@@ -141,8 +141,8 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 2.3125rem;
-  height: 2.3125rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .character_btn--user {
@@ -338,7 +338,7 @@ p {
   查看标准内容
 **/
 .content-container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -347,16 +347,16 @@ p {
   align-items: center;
   width:58.13rem;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .content-header img {
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .content-header > span {
-  font-size:2.25rem;
+  font-size:1.5rem;
   font-weight: bold;
   color:rgba(33,33,33,1);
   line-height:3.13rem;
@@ -368,13 +368,13 @@ p {
   display: flex;
   width:58.13rem;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 0.75rem;
 }
 
 .domain-tips span {
   display: inline-block;
   width: 3rem;
-  font-size:1rem;
+  font-size:0.88rem;
   font-weight: bold;
   color:rgba(107,104,104,1);
   line-height:1.38rem;
@@ -399,7 +399,7 @@ p {
 
 .domains button {
   display: inline-block;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .domains button:first-child {
@@ -419,13 +419,13 @@ p {
 .domain_btn--normal,
 .domain_btn--active {
   display: inline-block;
-  height: 2rem;
+  height: 1.75rem;
 }
 
 .domain_btn--normal span,
 .domain_btn--active span{
   color: #FFFFFF;
-  font-size: 1rem;
+  font-size: 0.88rem;
 }
 
 /* 搜索框 */
@@ -435,7 +435,7 @@ p {
   align-items: center;
   align-content: center;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 .search-section > span {
@@ -599,6 +599,10 @@ table thead th{
 }
 
 /* 对标结果表格 */
+.mtable {
+  position: relative;
+}
+
 .mtable table {
   padding-top: 1rem;
   margin: 0 auto;
@@ -743,4 +747,175 @@ table thead th{
   font-size:0.88rem;
   color:rgba(0,0,0,1);
   line-height:1.25rem;
+}
+
+.div_info .div_info-img {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+/* 弹出框选择 */
+.popup-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 53.13rem;
+  height: 38rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  visibility: hidden;
+}
+
+.popup-frame .popup-main {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+/* 步骤提示 */
+.popup-step {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
+}
+
+.popup-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.popup-div img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.popup-div span {
+  font-size: 1rem;
+  line-height: 1rem;
+  margin-left: 0.5rem;
+}
+
+.popup_step--active {
+  color:rgba(48,49,51,1);
+}
+
+.popup_step--normal {
+  color:rgba(144,147,153,1);
+}
+
+/* 每列标题 */
+.popup-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.popup-title div {
+  width: 33.333333%;
+  text-align: center;
+}
+
+.popup-title span {
+  font-size:1.13rem;
+  color:rgba(0,0,0,1);
+  line-height:1.56rem;
+  font-weight: bold;
+}
+
+/* 每列内容项 */
+.popup-column {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.popup-column > div {
+  width: 33.333333%;
+  height: 26rem;
+  overflow: scroll;
+}
+
+.popup_domain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-domain div {
+  margin-top: 0.5rem;
+}
+
+.popup-domain div:first {
+  margin-top: 0rem;
+}
+
+.popup-domain div > button {
+  width: 100%;
+  height: 2rem;
+  font-size:1rem;
+  color:rgba(255,255,255,1);
+  line-height:1.06rem;
+}
+
+.popup_domain--normal {
+  background-color: rgba(225,224,226,1);
+}
+
+.popup_domain--active {
+  background-color: rgba(58,116,255,1);
+}
+
+/* 第二、三列 */
+.popup-target,
+.popup-selected {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.popup-target .search-radio,
+.popup-selected .search-radio {
+  margin-top: 0.5rem;
+  font-weight: normal;
+}
+
+/* 最底部按钮 */
+.frame-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.frame-bottom button {
+  width:7rem;
+  height:2.25rem;
+  border-radius:0.31rem;
+  font-size:1rem;
+  color:rgba(255,255,255,1);
+  line-height:1.38rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.frame-cancel {
+  background:rgba(255,66,8,1);
+  box-shadow:0rem 0.13rem 0.25rem 0rem rgba(150,147,147,0.5);
+}
+
+.frame-ok {
+  background:rgba(58,116,255,1);
+  box-shadow:0rem 0.13rem 0.25rem 0rem rgba(150,147,147,0.5);
 }

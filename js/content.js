@@ -11,8 +11,10 @@ class Controller {
     this.status = 0 // 0：全部，1：候选项
 
     this.candidates = new Set()
-    this.searchares = new Set()
+    this.searchareas = new Set()
     this.keyword = undefined
+
+    this.searchareas.add('全部内容')
   }
   initParams (name, pageSize) {
     $('#ssname').text(name)
@@ -43,6 +45,20 @@ class Controller {
         that.status = 1
         $('#domain_all').removeClass('domain_btn--active').addClass('domain_btn--normal')
       }
+    })
+
+    $('.search-radio').bind('click', function (e) {
+      let _className = this.className
+      let _span = this.children[1].innerHTML
+      if (_className.indexOf('active') >= 0) {
+        _className = _className.replace('active', 'normal')
+        that.searchareas.delete(_span)
+      } else {
+        _className = _className.replace('normal', 'active')
+        that.searchareas.add(_span)
+      }
+      this.className = _className
+      console.log(that.searchareas)
     })
   }
   setKeyword (keyword) {
