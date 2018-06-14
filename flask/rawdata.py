@@ -205,8 +205,26 @@ def batch_rawdata_process(xls_dir):
         name = xlsx.split('.')[0]
         rawdata_process(name, xls_dir + '/' + xlsx)
 
+def read_match_result_csv(csv_path):
+    _matches = []
+    with open(csv_path, 'r') as fi:
+        for line in fi.readlines() :
+            spliters = line.split(',')
+            if len(spliters) == 0:
+                continue
+            else:
+                _target = str.strip(spliters[0])
+                _indexes = []
+                for i in range(1, len(spliters)):
+                    if len(str.strip(spliters[i])) >= 1:
+                        _indexes.append(str.strip(spliters[i]))
+                _matches.append({'target': _target, 'indexes': _indexes})
+    return _matches
+
 # rawdata_process("CCM", "./repositories/xlsx/CCM.xlsx")
 # rawdata_process("ISO27001", "./repositories/xlsx/ISO27001.xlsx")
 # batch_rawdata_process('./repositories/xlsx')
 # _dict = read_xlsjson('./repositories/json/CCM.json')
 # print(_dict)
+# data = read_match_result_csv('./repositories/xlsx/CSACCM-ISO27001.csv')
+# print(data)

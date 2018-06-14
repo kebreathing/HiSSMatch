@@ -1,3 +1,66 @@
+const _DOMAIN_BTN = {
+  btn: function (domain) {
+    return '<button class="domain_btn domain_btn--normal"><span>' + domain + '</span></button>'
+  }
+}
+
+const _DIV_INFO_STR = {
+  continer: function () {
+    return '<div class="div-i"></div>'
+  },
+  view: function () {
+    return '<div class="div_info"></div>'
+  },
+  left_view: function (index, desc) {
+    return '<div class="left-view"><h3>' + index + '</h3><p>' + desc + '</p></div>'
+  },
+  right_view: function () {
+    return '<div class="right-view"></div>'
+  },
+  spliter: function () {
+    return '<div class="spliter"></div>'
+  },
+  hiddenImg: function () {
+    return '<img class="div_info-img" src="./image/close.png" onclick="$(this).parent().css(\'visibility\', \'hidden\')"/>'
+  },
+  iImg: function () {
+    return '<img class="img-i" src="./image/i.png"/>'
+  },
+  tr: function () {
+    return '<tr></tr>'
+  },
+  td: function () {
+    return '<td></td>'
+  }
+}
+
+const _TD_STR = {
+  tr: function () {
+    return '<tr style="border-bottom: 1px grey solid;"></tr>'
+  },
+  td1: function () {
+    return '<td><div class="div-i"><img class="img-i" src="./image/i.png"/></div></td>'
+  },
+  td2: function (domain, index) {
+    return '<td class="col_domain1"><div><span>' + domain + '</span></div><div><span>' + index + '</span></div></div>'
+  },
+  td3: function (target) {
+    return '<td class="col_target1"><span>' + target + '</span></td>'
+  },
+  td4_container: function () {
+    return '<td class="col_domain2"></div>'
+  },
+  td4_content: function (domain, index) {
+    return '<div class="mtable-col3-row"><div><span>' + domain + '</span></div><div><span>' + index + '</span></div></div>'
+  },
+  td5_container: function () {
+    return '<td class="col_target2"></div>'
+  },
+  td5_content: function (target) {
+    return '<div style="height:2.5rem"><span>' + target + '</span></div>'
+  }
+}
+
 class Controller {
   constructor () {
     this.name = undefined
@@ -5,16 +68,23 @@ class Controller {
     this.status = 0 // 0：全部，1：候选项
 
     // 显示的候选项
+    this.domains = new Set()
     this.candidates = new Set()
   }
-  initParams (obj, sub, pageSize) {
+  initParams (obj, sub, pageSize, matches) {
     $('#obj').text(obj)
     $('#sub').text(sub)
 
     this.obj = obj
     this.sub = sub
     this.pageSize = pageSize
+    this.showdata = matches
+    this.matches = matches
+
+    this.set_datasource(this.matches)
+    this.initDomain()
     this.init()
+    this.set_showdata(this.showdata)
   }
   init () {
     // 读取数据源
@@ -38,6 +108,9 @@ class Controller {
         that.status = 1
         $('#domain_all').removeClass('domain_btn--active').addClass('domain_btn--normal')
       }
+
+      // 改变当前显示的数据
+      that.observe_domains()
     })
 
     $('.img-i').hover(function () {
@@ -52,6 +125,85 @@ class Controller {
     $('.btn-add').click(function () {
       $('#pop-dialog').css('visibility', 'visible')
     })
+  }
+  /**
+  * 设置数据集
+  **/
+  set_datasource(matches) {
+    this.matches = matches
+    // 设置domain
+    let _domains = new Set()
+    for (let i = 0; i < matches.length; i++) {
+      if (matches[i].obj === null) {
+        continue
+      }
+      _domains.add(matches[i].obj.object)
+    }
+    this.domains = _domains
+  }
+
+  initDomain() {
+    if (this.domains.length === 0) {
+      return
+    }
+
+    this.domains.forEach(domain => {
+          $('#domains').append(_DOMAIN_BTN.btn(domain))
+    })
+  }
+
+  // 观察domain的变化一旦其发生变化，要立马做修改
+  observe_domains () {
+    var that = this
+    if (this.candidates.size === 0 || this.candidates.has('全部内容')) {
+      this.showdata = this.matches
+    } else {
+      this.showdata = this.matches.filter(match => {
+        return match.obj !== null
+              && match.obj.object !== null
+              && that.candidates.has(match.obj.object)
+      })
+    }
+
+    this.set_showdata(this.showdata)
+  }
+
+  set_showdata(data) {
+    var table = $('#table-data')
+    table.children().remove()
+    for (let i = 0; i < data.length; i++) {
+      let obj = data[i].obj
+      let subs = data[i].subs
+
+      if (obj == null) {
+        continue
+      }
+
+      let tr = $(_TD_STR.tr())
+      let td1 = $(_TD_STR.td1())
+      let td2 = $(_TD_STR.td2(obj.object, obj.index))
+      let td3 = $(_TD_STR.td3(obj.target))
+
+      // 需要添加内容
+      let td4_container = $(_TD_STR.td4_container())
+      let td5_container = $(_TD_STR.td5_container())
+
+      for (let i = 0; i < subs.length; i++) {
+        let sub = subs[i]
+        if (sub == null) {
+          continue
+        }
+        td4_container.append($(_TD_STR.td4_content(sub.object, sub.index)))
+        td5_container.append($(_TD_STR.td5_content(sub.target)))
+      }
+
+      tr.append(td1)
+          .append(td2)
+            .append(td3)
+              .append(td4_container)
+                .append(td5_container)
+      table.append(tr)
+    }
   }
 }
 
@@ -149,6 +301,18 @@ $(document).ready(function () {
     map.set(key, value)
   }
 
-  controller.initParams(map.get('obj'), map.get('sub'), map.get('pageSize'))
+  var objname = map.get('obj')
+  var subname = map.get('sub')
+  var url = 'http://localhost:5000/match/' + objname + '/' + subname
+  $.ajax({
+    type: 'get',
+    url: url,
+    success: function (res) {
+      controller.initParams(objname, subname, map.get('pageSize'), res.res)
+    },
+    fail: function (res) {
+      console.log(res)
+    }
+  })
   popController.init()
 })
